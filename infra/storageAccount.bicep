@@ -1,4 +1,4 @@
-param buildNumber string
+param tags object = {}
 
 param location string = resourceGroup().location
 
@@ -15,10 +15,9 @@ module storageAccounts 'br/public:avm/res/storage/storage-account:0.15.0' = {
       bypass: 'AzureServices'
       defaultAction: 'Deny'
     }
-    tags: {
-      PipelineBuildNumber: buildNumber
+    tags: union(tags, {
       DeployerObjectID: deployer().objectId
       Environment: 'Development'
-    }
+    })
   }
 }

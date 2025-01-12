@@ -1,7 +1,7 @@
 trigger: none
 
 pool:
-  vmImage: windows-latest
+  vmImage: ubuntu-latest
 
 variables:
   resourceGroupName: 'arash-shared-rg' # Resource group name. Change it to your own resource group name
@@ -19,7 +19,7 @@ steps:
         --resource-group $(resourceGroupName) `
         --template-file ./infra/storageAccount.bicep `
         --name $deploymentName `
-        --parameters buildNumber="$(Build.BuildNumber)"
+        --parameters tags="{'PipelineRunID':'$(Build.BuildNumber)'}"
       
       # Add build tag to Azure Pipeline run
       echo "##vso[build.addbuildtag]$deploymentName"
