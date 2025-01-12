@@ -10,7 +10,7 @@ steps:
 - task: AzureCLI@2
   displayName: 'Bicep Deployer function'
   inputs:
-    azureSubscription: 'test-automatic'
+    azureSubscription: 'test-automatic' # Azure Resource Manager service connection. Change it to your own service connection
     scriptType: 'pscore'
     scriptLocation: 'inlineScript'
     inlineScript: |
