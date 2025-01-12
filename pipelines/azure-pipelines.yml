@@ -14,12 +14,12 @@ steps:
     scriptType: 'pscore'
     scriptLocation: 'inlineScript'
     inlineScript: |
-      $deploymentName="pipeline-run-$(Build.BuildId)"
+      $deploymentName="pipeline-run-$(Build.BuildNumber)"
       az deployment group create `
         --resource-group $(resourceGroupName) `
         --template-file ./infra/storageAccount.bicep `
         --name $deploymentName `
-        --parameters tags="{'PipelineRunID':'$(Build.BuildNumber)'}"
+        --parameters buildNumber="$(Build.BuildNumber)"
       
       # Add build tag to Azure Pipeline run
       echo "##vso[build.addbuildtag]deploymentName:$deploymentName"
