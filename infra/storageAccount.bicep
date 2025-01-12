@@ -16,7 +16,7 @@ module storageAccounts 'br/public:avm/res/storage/storage-account:0.15.0' = {
       defaultAction: 'Deny'
     }
     tags: union(tags, {
-      DeployerObjectID: deployer().objectId 
+      DeployerObjectID: deployer().objectId
       Environment: 'Development'
     })
   }
