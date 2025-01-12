@@ -14,7 +14,7 @@ steps:
     scriptType: 'pscore'
     scriptLocation: 'inlineScript'
     inlineScript: |
-      deploymentName="pipeline-run-$(Build.BuildId)"
+      $deploymentName="pipeline-run-$(Build.BuildId)"
       az deployment group create `
         --resource-group $resourceGroupName `
         --template-file ./infra/storageAccount.bicep `
