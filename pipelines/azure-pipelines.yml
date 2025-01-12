@@ -16,7 +16,7 @@ steps:
     inlineScript: |
       $deploymentName="pipeline-run-$(Build.BuildId)"
       az deployment group create `
-        --resource-group $resourceGroupName `
+        --resource-group $(resourceGroupName) `
         --template-file ./infra/storageAccount.bicep `
         --name $deploymentName `
         --parameters tags="{'PipelineRunID':'$(Build.BuildId)'}"
