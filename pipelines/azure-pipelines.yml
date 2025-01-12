@@ -19,7 +19,7 @@ steps:
         --resource-group $(resourceGroupName) `
         --template-file ./infra/storageAccount.bicep `
         --name $deploymentName `
-        --parameters tags="{'PipelineRunID':'$(Build.BuildId)'}"
+        --parameters tags="{'PipelineRunID':'$(Build.BuildNumber)'}"
       
       # Add build tag to Azure Pipeline run
       echo "##vso[build.addbuildtag]deploymentName:$deploymentName"
