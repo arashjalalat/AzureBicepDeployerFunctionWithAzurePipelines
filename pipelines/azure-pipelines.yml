@@ -1,7 +1,7 @@
 trigger: none
 
 pool:
-  vmImage: ubuntu-24.04
+  vmImage: ubuntu-20.04
 
 variables:
   resourceGroupName: 'arash-shared-rg' # Resource group name. Change it to your own resource group name
